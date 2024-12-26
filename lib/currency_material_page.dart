@@ -28,17 +28,15 @@ class CurrencyMaterialPage extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: "Enter amount in USD",
                   hintStyle: TextStyle(color: Colors.white70),
-                  label: Text(
-                    "Enter amount in USD to convert",
-                    style: TextStyle(color: Colors.white),
-                  ),
                   prefixIcon: Icon(Icons.monetization_on_outlined,
                       color: Colors.white70),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+                    borderSide: BorderSide(color: Colors.white54),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                 ),
               ),
