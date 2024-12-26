@@ -38,6 +38,10 @@ class CurrencyMaterialPage extends StatelessWidget {
                     borderSide: BorderSide(color: Colors.white54),
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
+                  
+                ),
+                keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true,
                 ),
               ),
             ],
