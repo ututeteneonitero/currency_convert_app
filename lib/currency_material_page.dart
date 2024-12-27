@@ -11,6 +11,11 @@ class CurrencyMaterialPage extends StatefulWidget {
 class _CurrencyMaterialPageState extends State<CurrencyMaterialPage> {
   double result = 0;
   final TextEditingController textEditingController = TextEditingController();
+
+  void convert() {
+    result = double.parse(textEditingController.text) * 16230;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +35,7 @@ class _CurrencyMaterialPageState extends State<CurrencyMaterialPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                result.toString(),
+                "Rp ${result.toString()}",
                 style: const TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
@@ -73,12 +78,11 @@ class _CurrencyMaterialPageState extends State<CurrencyMaterialPage> {
                   onPressed: () {
                     setState(() {
                       try {
-                        result =
-                            double.parse(textEditingController.text) * 16230;
+                        convert();
                       } catch (e) {
                         // result = 0;
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(result.toString())),
+                          SnackBar(content: Text("Enter a valid number")),
                         );
                       }
                     });
