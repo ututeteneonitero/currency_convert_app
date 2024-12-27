@@ -5,15 +5,23 @@ class CurrencyMaterialPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color.fromRGBO(29, 29, 29, 1),
+    return Scaffold(
+      backgroundColor: const Color.fromRGBO(29, 29, 29, 1),
+      appBar: AppBar(
+        title: const Text(
+          "Currency Converter",
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
+        backgroundColor: const Color.fromRGBO(29, 29, 29, 1),
+      ),
       body: Center(
         child: ColoredBox(
-          color: Color.fromRGBO(255, 0, 0, 0),
+          color: const Color.fromRGBO(255, 0, 0, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "0",
                 style: TextStyle(
                   fontSize: 50,
@@ -21,7 +29,7 @@ class CurrencyMaterialPage extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(30),
                 child: TextField(
                   style: TextStyle(
@@ -34,16 +42,39 @@ class CurrencyMaterialPage extends StatelessWidget {
                         color: Colors.white70),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
                     ),
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white54),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
                     ),
                   ),
-                  keyboardType: const TextInputType.numberWithOptions(
+                  keyboardType: TextInputType.numberWithOptions(
                     decimal: true,
                   ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 100),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    shadowColor: Color.fromRGBO(255, 255, 255, 0.3),
+                    elevation: 5,
+                    backgroundColor: Colors.white70,
+                    foregroundColor: Colors.black,
+                    minimumSize: const Size(double.infinity, 50),
+                    textStyle:
+                        const TextStyle(fontSize: 18, color: Colors.black87),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: const Text("Convert"),
                 ),
               ),
             ],
