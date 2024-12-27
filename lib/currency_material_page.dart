@@ -1,8 +1,16 @@
+// import 'dart:ffi' as ffi;
+
 import 'package:flutter/material.dart';
 
-class CurrencyMaterialPage extends StatelessWidget {
+class CurrencyMaterialPage extends StatefulWidget {
   const CurrencyMaterialPage({super.key});
+  @override
+  State<CurrencyMaterialPage> createState() => _CurrencyMaterialPageState();
+}
 
+class _CurrencyMaterialPageState extends State<CurrencyMaterialPage> {
+  double result = 0;
+  final TextEditingController textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,21 +29,22 @@ class CurrencyMaterialPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                "0",
-                style: TextStyle(
+              Text(
+                result.toString(),
+                style: const TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(30),
+              Padding(
+                padding: const EdgeInsets.all(30),
                 child: TextField(
-                  style: TextStyle(
+                  controller: textEditingController,
+                  style: const TextStyle(
                     color: Colors.white,
                   ),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: "Enter amount in USD",
                     hintStyle: TextStyle(color: Colors.white70),
                     prefixIcon: Icon(Icons.monetization_on_outlined,
@@ -53,7 +62,7 @@ class CurrencyMaterialPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  keyboardType: TextInputType.numberWithOptions(
+                  keyboardType: const TextInputType.numberWithOptions(
                     decimal: true,
                   ),
                 ),
@@ -61,7 +70,19 @@ class CurrencyMaterialPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 100),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      try {
+                        result =
+                            double.parse(textEditingController.text) * 16230;
+                      } catch (e) {
+                        // result = 0;
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(result.toString())),
+                        );
+                      }
+                    });
+                  },
                   style: TextButton.styleFrom(
                     shadowColor: Color.fromRGBO(255, 255, 255, 0.3),
                     elevation: 5,
@@ -84,3 +105,10 @@ class CurrencyMaterialPage extends StatelessWidget {
     );
   }
 }
+
+// class CurrencyMaterialPage1 extends StatelessWidget {
+//   const CurrencyMaterialPage1({super.key});
+
+//   @override
+
+// }
