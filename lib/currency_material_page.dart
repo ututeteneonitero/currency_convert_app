@@ -35,7 +35,7 @@ class _CurrencyMaterialPageState extends State<CurrencyMaterialPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Rp ${result.toString()}",
+                "Rp ${result != 0 ? result.toStringAsFixed(2) : result.toStringAsFixed(0)}",
                 style: const TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
